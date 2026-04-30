@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #020817;
+    color: #e2e8f0;
+    font-family: 'Exo 2', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #040d21;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0891b2;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    @apply border-cyan-500/40;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 245, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-cyan {
+    @apply bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-semibold px-6 py-3 rounded-xl transition-all duration-200 font-display;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  }
+  .btn-cyan:hover {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.7);
+    transform: translateY(-1px);
+  }
+  .btn-cyan:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline {
+    @apply border border-cyan-500/50 hover:border-cyan-400 text-cyan-400 hover:text-cyan-300 px-6 py-3 rounded-xl transition-all duration-200 font-display;
+  }
+  .btn-outline:hover {
+    background: rgba(6, 182, 212, 0.1);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  }
+
+  .input-field {
+    @apply w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-cyan-500/60 transition-all duration-200;
+  }
+  .input-field:focus {
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+  }
+
+  .label {
+    @apply text-sm font-medium text-white/70 mb-1.5 block;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold font-display text-white;
+  }
+
+  .section-title {
+    @apply text-xl font-semibold font-display text-white/90;
+  }
+
+  .circuit-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+}
+
+/* Glowing orb */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Neon text */
+.neon-text {
+  color: #22d3ee;
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.5), 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+/* Circuit lines SVG background */
+.circuit-pattern {
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
